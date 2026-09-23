@@ -1,0 +1,9 @@
+# Build output — regenerate with `node build-artifact.mjs`
+dist/
+
+# Third-party source PDF the questions were transcribed from.
+# Kept locally for reference; not redistributed from this public repo.
+reference/G1-DrivingQuestions.pdf
+
+node_modules/
+.DS_Store
