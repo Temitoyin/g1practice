@@ -7,3 +7,6 @@ reference/G1-DrivingQuestions.pdf
 
 node_modules/
 .DS_Store
+
+# Claude Code local dev-server config
+.claude/
