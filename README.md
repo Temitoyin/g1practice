@@ -57,7 +57,8 @@ To add questions, append to the array in `data/questions.js`. Ids must be unique
 ## Modes
 
 - **Flashcards** — flip, then sort into "Got it" or "Still learning".
-- **Practice** — answer, get the verdict immediately, loops indefinitely.
+- **Practice** — answer, get the verdict immediately, then a summary at the
+  end of the deck.
 - **Quick quiz** — 10 questions from the selected topic, scored at the end.
 - **Mock G1** — 20 signs + 20 rules, like the real exam. Pass is 16/20 in *each*
   part, so 32/40 split evenly passes but 35/40 lopsided does not.

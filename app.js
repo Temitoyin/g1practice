@@ -224,10 +224,8 @@
     },
 
     nextPractice: function () {
-      var idx = state.idx + 1;
-      var deck = state.deck;
-      if (idx >= deck.length) { deck = shuffle(deck); idx = 0; }  // practice loops
-      setState({ idx: idx, deck: deck, chosen: null });
+      // Runs the deck once. Past the end, viewPractice shows the summary.
+      setState({ idx: state.idx + 1, chosen: null });
     },
 
     chooseQuiz: function (el) {
@@ -504,15 +502,27 @@
   }
 
   function viewPractice() {
-    var item = state.deck[state.idx];
-    if (!item) return viewTopBar('Practice', '', '0%');
-
-    var answered = state.chosen !== null;
+    var n = state.deck.length;
     var head = viewTopBar(
       'Practice · ' + topicName(state.topic),
-      state.answered ? state.correctCount + '/' + state.answered : '',
-      pct(state.idx, state.deck.length)
+      n ? Math.min(state.idx + 1, n) + '/' + n : '',
+      pct(state.idx, n)
     );
+
+    var item = state.deck[state.idx];
+    if (!item) {
+      return head +
+        '<div class="done-panel">' +
+          '<h2>Practice done!</h2>' +
+          '<p>' + state.correctCount + ' of ' + state.answered + ' correct</p>' +
+          '<div class="done-actions">' +
+            '<button class="btn-neutral" type="button" data-act="goHome">Home</button>' +
+            '<button class="btn-primary" type="button" data-act="startPractice">Go again</button>' +
+          '</div>' +
+        '</div>';
+    }
+
+    var answered = state.chosen !== null;
 
     var options = viewOptions(item, function (i) {
       if (!answered) return '';
