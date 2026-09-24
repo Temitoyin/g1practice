@@ -1,5 +1,7 @@
 // G1 question bank — 122 questions (24 signs, 77 rules, 21 licence).
-// Shape: { id, cat: "signs"|"rules"|"licence", q, img?, o: [4 strings], a: 0-3 }
+// Shape: { id, cat, q, img?, o: [4 strings], a: 0-3, ref?, cite? }
+//   ref  — handbook chapter key, when the category default is wrong
+//   cite — the source the answer rests on, shown under the feedback
 //
 // Answers validated against the Official MTO Driver's Handbook (ontario.ca).
 // One question per line, so changes show up cleanly in a diff.
@@ -24,9 +26,9 @@ window.G1_QUESTIONS = [
   {"id":"s23","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s23.svg","o":["Divided highway ahead","You are approaching a one-way street","Hidden intersection ahead","Pavement narrows"],"a":3},
   {"id":"s25","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s25.png","o":["Construction zone 1 km ahead","Bumpy road ahead","Narrow bridge ahead","Winding road ahead"],"a":0},
   {"id":"s26","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s26.svg","o":["Danger, sharp turn","Keep to left","Danger road ends","Winding road ahead"],"a":0},
-  {"id":"s27","cat":"signs","q":"What does this hand signal mean?","img":"assets/signs/s27.svg","o":["You may pass me","I am slowing or stopping","I am turning left","I am turning right"],"a":2},
-  {"id":"s28","cat":"signs","q":"What does this hand signal mean?","img":"assets/signs/s28.svg","o":["You may pass me","I am slowing or stopping","I am turning left","I am turning right"],"a":1},
-  {"id":"s29","cat":"signs","q":"What does this hand signal mean?","img":"assets/signs/s29.svg","o":["You may pass me","I am turning right","I am turning left","I am slowing or stopping"],"a":1},
+  {"id":"s27","cat":"signs","q":"What does this hand signal mean?","img":"assets/signs/s27.svg","o":["You may pass me","I am slowing or stopping","I am turning left","I am turning right"],"a":2,"ref":"driving-along","cite":"Highway Traffic Act s. 142(4)(a): signal a left turn \"by extending the hand and arm horizontally and beyond the left side of the vehicle\"."},
+  {"id":"s28","cat":"signs","q":"What does this hand signal mean?","img":"assets/signs/s28.svg","o":["You may pass me","I am slowing or stopping","I am turning left","I am turning right"],"a":1,"ref":"driving-along","cite":"Highway Traffic Act s. 142(8)(a): signal a stop or sudden slowdown \"by means of the hand and arm extended downward beyond the left side of the vehicle\"."},
+  {"id":"s29","cat":"signs","q":"What does this hand signal mean?","img":"assets/signs/s29.svg","o":["You may pass me","I am turning right","I am turning left","I am slowing or stopping"],"a":1,"ref":"driving-along","cite":"Highway Traffic Act s. 142(4)(b): signal a right turn \"by extending the hand and arm upward and beyond the left side of the vehicle\"."},
   {"id":"s33","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s33.svg","o":["Hidden intersection","Right lane ends","You are approaching a steep hill","Pedestrian crossing ahead"],"a":1},
   {"id":"r1","cat":"rules","q":"When driving at night, you should use low beam headlights (dim lights) when:","o":["Meeting or following another vehicle","Blinded by the headlights of an approaching vehicle","Approaching an intersection","Another driver dims his lights"],"a":0},
   {"id":"r2","cat":"rules","q":"Before leaving your car parked on a downgrade, you should:","o":["Turn your front wheel to the left and set your parking brake","Set your parking brake only","Leave your front wheels parallel to the curb","Turn your front wheels to the right and set your parking brake"],"a":3},

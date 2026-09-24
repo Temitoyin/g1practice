@@ -29,12 +29,19 @@
 
   var HANDBOOK = 'https://www.ontario.ca/document/official-mto-drivers-handbook';
 
-  // Where to send someone who wants the rule behind a question.
+  // Where to send someone who wants the rule behind a question. Keyed by
+  // category, and by chapter slug for questions that override it with `ref`
+  // (hand signals, for instance, are in Driving along, not Signs).
   var CHAPTER = {
     signs:   { label: 'Signs', url: HANDBOOK + '/signs' },
     rules:   { label: 'Driving along', url: HANDBOOK + '/driving-along' },
     licence: { label: "Keeping your driver's licence",
-               url: HANDBOOK + '/keeping-your-drivers-licence' }
+               url: HANDBOOK + '/keeping-your-drivers-licence' },
+    'driving-along': { label: 'Driving along', url: HANDBOOK + '/driving-along' },
+    'safe-and-responsible-driving': { label: 'Safe and responsible driving',
+               url: HANDBOOK + '/safe-and-responsible-driving' },
+    'dealing-emergencies': { label: 'Dealing with emergencies',
+               url: HANDBOOK + '/dealing-emergencies' }
   };
 
   var REFERENCES = [
@@ -402,6 +409,9 @@
                      '<span class="ref-note">' + esc(r[2]) + '</span></a></li>';
             }).join('') +
           '</ul>' +
+          '<p class="ref-legal">Questions that quote the <a href="https://www.ontario.ca/laws/statute/90h08" ' +
+            'target="_blank" rel="noopener noreferrer">Highway Traffic Act</a> reproduce it under ' +
+            'Crown copyright. &copy; King&rsquo;s Printer for Ontario, 1990.</p>' +
         '</section>' +
       '</div>';
   }
@@ -469,10 +479,12 @@
       '</div>';
   }
 
-  // Link to the handbook chapter that covers this question's topic.
-  function viewChapterLink(cat) {
-    var ch = CHAPTER[cat] || CHAPTER.rules;
-    return '<a class="ref-inline" href="' + ch.url + '" target="_blank" rel="noopener noreferrer">' +
+  // Link to the chapter that actually covers this question, plus the source the
+  // answer rests on where the question names one.
+  function viewChapterLink(item) {
+    var ch = CHAPTER[item.ref] || CHAPTER[item.cat] || CHAPTER.rules;
+    return (item.cite ? '<span class="ref-cite">' + esc(item.cite) + '</span>' : '') +
+           '<a class="ref-inline" href="' + ch.url + '" target="_blank" rel="noopener noreferrer">' +
            'Look it up in ' + esc(ch.label) + ' &#8599;</a>';
   }
 
@@ -521,7 +533,7 @@
             '<span class="feedback-detail">' +
               (ok ? 'Nice one.' : 'Answer: ' + LETTERS[item.a] + '. ' + esc(item.o[item.a])) +
             '</span>' +
-            viewChapterLink(item.cat) +
+            viewChapterLink(item) +
           '</div>' +
           '<button class="btn-next" type="button" data-act="nextPractice">Next &rarr;</button>' +
         '</div>';

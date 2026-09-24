@@ -443,6 +443,14 @@ a:hover { color: var(--muted); }
 .ref-name::after { content: " \2197"; color: var(--muted); font-weight: 500; }
 .ref-note { font-size: 13px; color: var(--muted); line-height: 1.35; }
 
+/* Source citation under the feedback text */
+.ref-cite {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
 /* Inline link inside the practice feedback bar */
 .ref-inline {
   font-size: 13px;
@@ -454,6 +462,15 @@ a:hover { color: var(--muted); }
 }
 
 .ref-inline:hover { color: var(--muted); }
+
+.ref-legal {
+  margin: 8px 2px 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted-soft);
+}
+
+.ref-legal a { color: var(--muted); text-underline-offset: 2px; }
 
 .ref-footnote {
   margin: 2px 0 0;

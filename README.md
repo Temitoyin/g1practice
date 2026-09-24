@@ -106,9 +106,31 @@ every answer in this bank was checked against:
 | [Sample knowledge test](https://www.ontario.ca/document/official-mto-drivers-handbook/test-yourself-sample-knowledge-test-questions) | The ministry's own practice questions |
 
 They appear in three places: a Reference block on the home screen, a "Look it
-up" link in the practice feedback that points at the chapter for that
-question's category (`CHAPTER` in `app.js`), and a footnote under the list of
-missed questions on the results screen.
+up" link in the practice feedback, and a footnote under the list of missed
+questions on the results screen.
+
+### Per-question sources
+
+A question resolves its chapter from its category via `CHAPTER` in `app.js`,
+but two optional fields override that:
+
+| Field  | Purpose |
+|--------|---------|
+| `ref`  | A chapter key, when the category default sends readers to the wrong place |
+| `cite` | The source the answer rests on, shown under the feedback text |
+
+`s27`–`s29` use both. Hand signals are covered in *Driving along*, not *Signs*,
+so a category-derived link sent readers to a chapter that does not mention them
+at all. They also carry the statutory wording from the Highway Traffic Act,
+s. 142(4) and s. 142(8) — a left turn is signalled "by extending the hand and
+arm horizontally and beyond the left side of the vehicle", a right turn
+"upward", and a stop "downward".
+
+Quoting the Act is deliberate. The King's Printer permits anyone to reproduce
+the text of Ontario statutes without permission or charge, provided Crown
+copyright is acknowledged, which the app does in its Reference block. That
+makes these three questions checkable against primary law rather than against a
+drawing.
 
 ## Sign artwork
 
