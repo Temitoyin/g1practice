@@ -32,7 +32,7 @@ index.html          markup shell
 styles.css          design tokens + every component class
 app.js              state machine and views
 data/questions.js   the 124-question bank (sets window.G1_QUESTIONS)
-assets/signs/       26 sign images (24 SVG, 2 PNG)
+assets/signs/       24 sign images (23 SVG, 1 PNG)
 build-artifact.mjs  bundles the app into dist/artifact.html
 reference/          the original Claude Design file
 ```
@@ -43,11 +43,11 @@ for publishing the app as a Claude Artifact. It is not part of the website and
 
 ## The question bank
 
-124 questions, each `{ id, cat, q, img?, o: [4 strings], a: 0-3 }`:
+122 questions, each `{ id, cat, q, img?, o: [4 strings], a: 0-3 }`:
 
 | Category  | Count | Notes                                  |
 |-----------|-------|----------------------------------------|
-| `signs`   | 26    | each has an `img` under `assets/signs/` |
+| `signs`   | 24    | each has an `img` under `assets/signs/` |
 | `rules`   | 77    | road rules, no images                   |
 | `licence` | 21    | licensing, demerit points, penalties    |
 
@@ -112,44 +112,67 @@ missed questions on the results screen.
 
 ## Sign artwork
 
-24 of the 26 sign images are SVG, so they stay sharp at any size and on any
-display.
+23 of the 24 sign images are SVG, so they stay sharp at any size.
 
-**18 are the official Ontario signs**, taken from Wikimedia Commons under their
-own sign codes — Ra-001 (stop), Ra-002 (yield), Rb-016 (no U-turn), Rb-019 (do
-not enter), Rb-025-R (keep right of island), Rb-055-L-R (no stopping), Wa-6R,
+**17 are the official Ontario signs**, from Wikimedia Commons under their own
+sign codes — Ra-001 (stop), Ra-002 (yield), Rb-016 (no U-turn), Rb-019 (do not
+enter), Rb-025-R (keep right of island), Rb-055-L-R (no stopping), Wa-6R,
 Wa-8R, Wa-21, Wa-22, Wa-23R, Wa-28, Wa-34, Wb-001, Wb-102A, Wc-001, Wc-4 and
 Wc-5. All are public domain with no attribution required.
 
-**Six are drawn in-house** because they are not road signs and have no official
-SVG: the three hand-signal illustrations (`s27`–`s29`), the slow-moving-vehicle
-emblem (`s3`), the school bus stop arm (`s14`) and the destination board (`s7`).
+**Six are drawn in-house** because they are not road signs: the three
+hand-signal illustrations (`s27`–`s29`), the slow-moving-vehicle emblem (`s3`)
+and the destination board (`s7`).
 
-**Two are still the original PNGs.** `s1`'s green circle with a right-turn arrow
-has no equivalent in the current Ontario sign set. `s25`'s sign is correct — it
-matches the handbook's "Construction work one kilometre ahead" exactly — but no
-scalable version carries the "1 km" the question depends on, so it stays a PNG.
-Both are low-resolution and would benefit from better source art.
+**One is still the original PNG.** `s25` matches the handbook's "Construction
+work one kilometre ahead" exactly, but no scalable version carries the "1 km"
+the question depends on.
 
-### How these were checked
+### Why not just use the handbook's images?
+
+The handbook does contain artwork for some of these, but it cannot be used:
+
+- The hand signals are one diagram (`2-8.jpg`, *Driving along*) with each panel
+  captioned "Left Turn", "Right Turn", "Slowing Down OR Stopping". Used whole it
+  gives away every answer; cropping the captions off is a modification.
+- Ontario's copyright terms allow reproduction "for non-commercial purposes **if
+  no changes are made to the original content**", with credit and Crown
+  copyright acknowledged. Commercial use needs a licence from the King's
+  Printer.
+
+So the in-house drawings are the licensing-safe option as well as the sharper
+one. They were checked against `2-8.jpg` for accuracy: arm straight out with the
+left indicator lit, arm bent up at the elbow with the right indicator, arm out
+and down with both brake lights.
+
+### How the sign meanings were checked
 
 ontario.ca puts each sign's caption **before** its image in the DOM, not after.
 Matching them the other way round silently shifts every caption by one sign. The
-pairings above were built by walking the page structure and taking the paragraph
-that *precedes* each image, then confirmed against three signs whose meaning is
+pairings were built by walking the page structure and taking the paragraph that
+*precedes* each image, then confirmed against three signs whose meaning is
 unmistakable (stop, yield, railway crossing). Re-derive them the same way before
 changing any sign, and check the new image against the question's answer — not
 just against the sign it replaces.
 
+### Questions that were removed
+
+`s1` and `s14` were dropped because no official artwork could be found for
+either. `s1` showed a green circle containing a right-turn arrow, which has no
+equivalent in the current Ontario sign set — the handbook's green-circle
+examples are bicycle route, parking and snowmobiles. `s14` showed a school bus
+stop arm, which appears in the handbook only as part of a wider scene, never on
+its own.
+
 ## Known limits
 
-- The bank has only 26 sign questions, so a 20-question signs section repeats
+- The bank has only 24 sign questions, so a 20-question signs section repeats
   most of them between attempts. Add more sign questions to fix it.
 - Questions have no explanation field — a wrong answer shows the correct option
   but not the reasoning.
 - Single theme by design: the warm cream palette is the app's identity, so it
   does not follow the OS dark-mode setting.
-- `s1` and `s25` still use low-resolution PNGs (see Sign artwork above).
+- `s25` still uses a low-resolution PNG (see Sign artwork above).
 
 ## Note on the question source
 

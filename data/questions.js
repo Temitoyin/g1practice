@@ -1,10 +1,9 @@
-// G1 question bank — 124 questions (26 signs, 77 rules, 21 licence).
+// G1 question bank — 122 questions (24 signs, 77 rules, 21 licence).
 // Shape: { id, cat: "signs"|"rules"|"licence", q, img?, o: [4 strings], a: 0-3 }
 //
 // Answers validated against the Official MTO Driver's Handbook (ontario.ca).
 // One question per line, so changes show up cleanly in a diff.
 window.G1_QUESTIONS = [
-  {"id":"s1","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s1.png","o":["The right turn shown is permitted","You must not turn right here","Hidden intersection ahead","You are approaching a traffic island"],"a":0},
   {"id":"s2","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s2.svg","o":["Pass to right of traffic island","Road turns right then left","Winding road ahead","Pass other traffic on the right"],"a":0},
   {"id":"s3","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s3.svg","o":["Stop sign ahead","Yield right-of-way","Dead end street ahead","Slow moving vehicle ahead"],"a":3},
   {"id":"s5","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s5.svg","o":["Road slippery when wet","No right turn permitted","No left turn permitted","You must not make a U-turn"],"a":3},
@@ -16,7 +15,6 @@ window.G1_QUESTIONS = [
   {"id":"s11","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s11.svg","o":["No entry into intersection","This sign means no stopping","Vehicles approaching from the angle shown must stop","Need to stop for stop signs in directions of arrows"],"a":1},
   {"id":"s12","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s12.svg","o":["Do not enter","Do not enter unless local traffic","Means a traffic circle ahead","Do not pass"],"a":0},
   {"id":"s13","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s13.svg","o":["Hidden intersection ahead","Winding road ahead","Road slippery when wet","Narrow road ahead"],"a":1},
-  {"id":"s14","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s14.svg","o":["Stop sign","Yield sign","Slow moving vehicle","School bus stop arm"],"a":3},
   {"id":"s15","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s15.svg","o":["Playground zone sign","Children playing in residential area","School zone sign","Directional sign for children"],"a":2},
   {"id":"s16","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s16.svg","o":["Factory, slow down","Bump or uneven pavement","Construction zone","Bridge or viaduct"],"a":1},
   {"id":"s17","cat":"signs","q":"What does this sign mean?","img":"assets/signs/s17.svg","o":["Divided highway ahead","Divided highway ends","Narrow bridge ahead","Road under construction"],"a":0},

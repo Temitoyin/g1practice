@@ -334,7 +334,9 @@
             '<div class="stat"><dt>Best mock test</dt><dd>' +
               (best === null ? '&mdash;' : best + ' / 40') + '</dd></div>' +
             '<div class="stat"><dt>To review</dt><dd>' +
-              state.progress.missed.length + ' questions</dd></div>' +
+              state.progress.missed.length +
+              (state.progress.missed.length === 1 ? ' question' : ' questions') +
+            '</dd></div>' +
           '</dl>' +
         '</section>' +
 
@@ -649,6 +651,20 @@
     var fn = actions[el.getAttribute('data-act')];
     if (fn) fn(el);
   }
+
+  // Questions can be removed from the bank between visits. Saved progress that
+  // names one of them would otherwise inflate the "Mastered" and "To review"
+  // counts, so drop those ids before the first render.
+  (function pruneProgress() {
+    var live = {};
+    state.data.forEach(function (q) { live[q.id] = true; });
+    var p = state.progress;
+    var mastered = p.mastered.filter(function (id) { return live[id]; });
+    var missed = p.missed.filter(function (id) { return live[id]; });
+    if (mastered.length !== p.mastered.length || missed.length !== p.missed.length) {
+      saveProgress({ mastered: mastered, missed: missed, best: p.best });
+    }
+  })();
 
   root.addEventListener('click', dispatch);
 
