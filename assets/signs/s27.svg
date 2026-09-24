@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img">
+  <title>Hand signal: arm straight out</title>
+  <rect width="200" height="152" fill="#CBE3F5"/>
+  <rect y="152" width="200" height="48" fill="#9FA9B0"/>
+
+  <!-- driver's arm, out of the left-hand window -->
+  <path d="M56 88 H16" stroke="#9A6A45" stroke-width="17" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M56 88 H16" stroke="#E8B48C" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="14" cy="88" r="11" fill="#E8B48C" stroke="#9A6A45" stroke-width="2.5"/>
+
+  <!-- wheels -->
+  <rect x="62" y="150" width="24" height="16" rx="5" fill="#2A2E33"/>
+  <rect x="134" y="150" width="24" height="16" rx="5" fill="#2A2E33"/>
+
+  <!-- cabin -->
+  <path d="M74 58 h72 a10 10 0 0 1 10 8 l6 30 H58 l6-30 a10 10 0 0 1 10-8 z" fill="#2C4C8C" stroke="#16305E" stroke-width="3"/>
+  <path d="M80 64 h60 a6 6 0 0 1 6 5 l4 22 H70 l4-22 a6 6 0 0 1 6-5 z" fill="#C3DAF0"/>
+  <circle cx="92" cy="80" r="9" fill="#333A41"/>
+  <path d="M80 92 q12 -12 24 0 z" fill="#333A41"/>
+
+  <!-- body -->
+  <rect x="50" y="94" width="120" height="58" rx="11" fill="#2C4C8C" stroke="#16305E" stroke-width="3"/>
+  <rect x="58" y="106" width="28" height="18" rx="5" fill="#A81F1C" stroke="#16305E" stroke-width="2"/>
+  <rect x="134" y="106" width="28" height="18" rx="5" fill="#A81F1C" stroke="#16305E" stroke-width="2"/>
+  <rect x="88" y="109" width="12" height="12" rx="3" fill="#F5A623"/>
+  <rect x="120" y="109" width="12" height="12" rx="3" fill="#EFE2C8"/>
+  <rect x="101" y="106" width="18" height="18" rx="3" fill="#F0F0F0" stroke="#16305E" stroke-width="1.5"/>
+  <rect x="50" y="132" width="120" height="14" rx="5" fill="#17325F"/>
+</svg>

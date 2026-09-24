@@ -32,7 +32,7 @@ index.html          markup shell
 styles.css          design tokens + every component class
 app.js              state machine and views
 data/questions.js   the 124-question bank (sets window.G1_QUESTIONS)
-assets/signs/       26 road-sign images
+assets/signs/       26 sign images (24 SVG, 2 PNG)
 build-artifact.mjs  bundles the app into dist/artifact.html
 reference/          the original Claude Design file
 ```
@@ -91,6 +91,27 @@ in-memory session rather than a broken page.
 | `mockPerPart`  | `20`    | signs and rules per mock test           |
 | `mockPassMark` | `16`    | correct answers needed in each part      |
 
+## Sign artwork
+
+24 of the 26 sign images are SVG, so they stay sharp at any size and on any
+display.
+
+**18 are the official Ontario signs**, taken from Wikimedia Commons under their
+own sign codes — Ra-001 (stop), Ra-002 (yield), Rb-016 (no U-turn), Rb-019 (do
+not enter), Rb-025-R (keep right of island), Rb-055-L-R (no stopping), Wa-6R,
+Wa-8R, Wa-21, Wa-22, Wa-23R, Wa-24, Wa-34, Wb-001, Wb-102A, Wc-001, Wc-4 and
+Wc-5. All are public domain with no attribution required.
+
+**Six are drawn in-house** because they are not road signs and have no official
+SVG: the three hand-signal illustrations (`s27`–`s29`), the slow-moving-vehicle
+emblem (`s3`), the school bus stop arm (`s14`) and the destination board (`s7`).
+
+**Two are still the original PNGs.** `s1`'s green circle with a right-turn arrow
+has no equivalent in the current Ontario sign set, and no official artwork
+matches `s25`'s "CONSTRUCTION 1 km" wording — the closest says "CONSTRUCTION
+ENDS", which would contradict the question. Both are low-resolution and would
+benefit from better source art.
+
 ## Known limits
 
 - The bank has only 26 sign questions, so a 20-question signs section repeats
@@ -99,6 +120,7 @@ in-memory session rather than a broken page.
   but not the reasoning.
 - Single theme by design: the warm cream palette is the app's identity, so it
   does not follow the OS dark-mode setting.
+- `s1` and `s25` still use low-resolution PNGs (see Sign artwork above).
 
 ## Note on the question source
 

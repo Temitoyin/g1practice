@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 150" role="img">
+  <title>Destination board</title>
+  <rect x="4" y="4" width="252" height="142" rx="10" fill="#0A7A3C"/>
+  <rect x="12" y="12" width="236" height="126" rx="6" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  <g fill="#FFFFFF" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="bold">
+    <text x="60" y="49">KINGSTON</text>
+    <text x="60" y="88">NEWMARKET</text>
+    <text x="60" y="127">TORONTO</text>
+  </g>
+  <!-- straight-ahead arrow -->
+  <path d="M38 48 V28 M38 28 l-6 7 M38 28 l6 7" stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- left arrow -->
+  <path d="M46 80 H26 M26 80 l7 -6 M26 80 l7 6" stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- right arrow -->
+  <path d="M212 119 h20 M232 119 l-7 -6 M232 119 l-7 6" stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

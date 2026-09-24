@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img">
+  <title>School bus stop arm</title>
+  <rect x="86" y="140" width="28" height="56" fill="#6B6B6B"/>
+  <g transform="translate(100 78)">
+    <path d="M-30-72 H30 L72-30 V30 L30 72 H-30 L-72 30 V-30 Z" fill="#D8232A" stroke="#FFFFFF" stroke-width="7"/>
+    <text x="0" y="14" text-anchor="middle" fill="#FFFFFF"
+          font-family="Helvetica,Arial,sans-serif" font-size="40" font-weight="bold"
+          letter-spacing="1">STOP</text>
+  </g>
+  <circle cx="100" cy="14" r="10" fill="#FFD23F" stroke="#7A5C00" stroke-width="2"/>
+  <circle cx="100" cy="142" r="10" fill="#FFD23F" stroke="#7A5C00" stroke-width="2"/>
+</svg>
