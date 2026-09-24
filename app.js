@@ -27,6 +27,25 @@
 
   var LETTERS = ['A', 'B', 'C', 'D'];
 
+  var HANDBOOK = 'https://www.ontario.ca/document/official-mto-drivers-handbook';
+
+  // Where to send someone who wants the rule behind a question.
+  var CHAPTER = {
+    signs:   { label: 'Signs', url: HANDBOOK + '/signs' },
+    rules:   { label: 'Driving along', url: HANDBOOK + '/driving-along' },
+    licence: { label: "Keeping your driver's licence",
+               url: HANDBOOK + '/keeping-your-drivers-licence' }
+  };
+
+  var REFERENCES = [
+    ['Signs', '/signs', 'Every sign in this app, with the official wording'],
+    ['Driving along', '/driving-along', 'Right-of-way, turns, following distance'],
+    ['Safe and responsible driving', '/safe-and-responsible-driving', 'Speed, alcohol, sharing the road'],
+    ["Keeping your driver's licence", '/keeping-your-drivers-licence', 'Demerit points, suspensions, renewals'],
+    ['Dealing with emergencies', '/dealing-emergencies', 'Collisions, breakdowns, when to call police'],
+    ['Sample knowledge test', '/test-yourself-sample-knowledge-test-questions', "The ministry's own practice questions"]
+  ];
+
   // ------------------------------------------------------------ storage --
 
   function loadProgress() {
@@ -362,6 +381,26 @@
               'You need 16/20 in each part to pass.</p>' +
           '</div>' +
         '</section>' +
+
+        '<section class="section">' +
+          '<h2 class="eyebrow">Reference</h2>' +
+          '<a class="ref-lead" href="' + HANDBOOK + '" target="_blank" rel="noopener noreferrer">' +
+            '<span class="ref-mark" aria-hidden="true"></span>' +
+            '<span class="mode-text">' +
+              '<span class="mode-title">Official MTO Driver&rsquo;s Handbook</span>' +
+              '<span class="mode-sub">Every answer here was checked against it</span>' +
+            '</span>' +
+            '<span class="mode-arrow" aria-hidden="true">&#8599;</span>' +
+          '</a>' +
+          '<ul class="ref-list">' +
+            REFERENCES.map(function (r) {
+              return '<li><a class="ref-row" href="' + HANDBOOK + r[1] +
+                     '" target="_blank" rel="noopener noreferrer">' +
+                     '<span class="ref-name">' + esc(r[0]) + '</span>' +
+                     '<span class="ref-note">' + esc(r[2]) + '</span></a></li>';
+            }).join('') +
+          '</ul>' +
+        '</section>' +
       '</div>';
   }
 
@@ -428,6 +467,13 @@
       '</div>';
   }
 
+  // Link to the handbook chapter that covers this question's topic.
+  function viewChapterLink(cat) {
+    var ch = CHAPTER[cat] || CHAPTER.rules;
+    return '<a class="ref-inline" href="' + ch.url + '" target="_blank" rel="noopener noreferrer">' +
+           'Look it up in ' + esc(ch.label) + ' &#8599;</a>';
+  }
+
   function viewOptions(item, classify, action) {
     return '<div class="options">' + item.o.map(function (text, i) {
       return '<button class="option ' + classify(i) + '" type="button" data-act="' + action +
@@ -473,6 +519,7 @@
             '<span class="feedback-detail">' +
               (ok ? 'Nice one.' : 'Answer: ' + LETTERS[item.a] + '. ' + esc(item.o[item.a])) +
             '</span>' +
+            viewChapterLink(item.cat) +
           '</div>' +
           '<button class="btn-next" type="button" data-act="nextPractice">Next &rarr;</button>' +
         '</div>';
@@ -556,7 +603,10 @@
               '<span class="miss-yours">&#10005; ' + esc(w.yours) + '</span>' +
               '<span class="miss-correct">&#10003; ' + esc(w.correct) + '</span>' +
             '</div></div>';
-        }).join('') + '</div>';
+        }).join('') + '</div>' +
+        '<p class="ref-footnote">Look these up in the ' +
+          '<a href="' + HANDBOOK + '" target="_blank" rel="noopener noreferrer">' +
+          'Official MTO Driver&rsquo;s Handbook</a>.</p>';
     }
 
     return card + parts +

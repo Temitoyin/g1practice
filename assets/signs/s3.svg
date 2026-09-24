@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 190" role="img">
   <title>Slow moving vehicle emblem</title>
-  <path d="M100 8 L196 172 H4 Z" fill="#B01B1B"/>
-  <path d="M100 30 L176 162 H24 Z" fill="#B01B1B"/>
-  <path d="M100 44 L154 138 H46 Z" fill="#F26522"/>
+  <path d="M100 30 L166 148 H34 Z"
+        fill="#B0181B" stroke="#B0181B" stroke-width="42" stroke-linejoin="round"/>
+  <path d="M100 62 L140 134 H60 Z"
+        fill="#F26A21" stroke="#F26A21" stroke-width="20" stroke-linejoin="round"/>
 </svg>

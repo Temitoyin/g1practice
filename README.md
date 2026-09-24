@@ -91,6 +91,25 @@ in-memory session rather than a broken page.
 | `mockPerPart`  | `20`    | signs and rules per mock test           |
 | `mockPassMark` | `16`    | correct answers needed in each part      |
 
+## References
+
+The app links out to the Official MTO Driver's Handbook, which is the source
+every answer in this bank was checked against:
+
+| Chapter | Covers |
+|---------|--------|
+| [Signs](https://www.ontario.ca/document/official-mto-drivers-handbook/signs) | Every sign in this app, with the official wording |
+| [Driving along](https://www.ontario.ca/document/official-mto-drivers-handbook/driving-along) | Right-of-way, turns, following distance |
+| [Safe and responsible driving](https://www.ontario.ca/document/official-mto-drivers-handbook/safe-and-responsible-driving) | Speed, alcohol, sharing the road |
+| [Keeping your driver's licence](https://www.ontario.ca/document/official-mto-drivers-handbook/keeping-your-drivers-licence) | Demerit points, suspensions, renewals |
+| [Dealing with emergencies](https://www.ontario.ca/document/official-mto-drivers-handbook/dealing-emergencies) | Collisions, breakdowns, when to call police |
+| [Sample knowledge test](https://www.ontario.ca/document/official-mto-drivers-handbook/test-yourself-sample-knowledge-test-questions) | The ministry's own practice questions |
+
+They appear in three places: a Reference block on the home screen, a "Look it
+up" link in the practice feedback that points at the chapter for that
+question's category (`CHAPTER` in `app.js`), and a footnote under the list of
+missed questions on the results screen.
+
 ## Sign artwork
 
 24 of the 26 sign images are SVG, so they stay sharp at any size and on any
