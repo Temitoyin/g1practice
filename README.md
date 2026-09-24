@@ -118,7 +118,7 @@ display.
 **18 are the official Ontario signs**, taken from Wikimedia Commons under their
 own sign codes — Ra-001 (stop), Ra-002 (yield), Rb-016 (no U-turn), Rb-019 (do
 not enter), Rb-025-R (keep right of island), Rb-055-L-R (no stopping), Wa-6R,
-Wa-8R, Wa-21, Wa-22, Wa-23R, Wa-24, Wa-34, Wb-001, Wb-102A, Wc-001, Wc-4 and
+Wa-8R, Wa-21, Wa-22, Wa-23R, Wa-28, Wa-34, Wb-001, Wb-102A, Wc-001, Wc-4 and
 Wc-5. All are public domain with no attribution required.
 
 **Six are drawn in-house** because they are not road signs and have no official
@@ -126,10 +126,20 @@ SVG: the three hand-signal illustrations (`s27`–`s29`), the slow-moving-vehicl
 emblem (`s3`), the school bus stop arm (`s14`) and the destination board (`s7`).
 
 **Two are still the original PNGs.** `s1`'s green circle with a right-turn arrow
-has no equivalent in the current Ontario sign set, and no official artwork
-matches `s25`'s "CONSTRUCTION 1 km" wording — the closest says "CONSTRUCTION
-ENDS", which would contradict the question. Both are low-resolution and would
-benefit from better source art.
+has no equivalent in the current Ontario sign set. `s25`'s sign is correct — it
+matches the handbook's "Construction work one kilometre ahead" exactly — but no
+scalable version carries the "1 km" the question depends on, so it stays a PNG.
+Both are low-resolution and would benefit from better source art.
+
+### How these were checked
+
+ontario.ca puts each sign's caption **before** its image in the DOM, not after.
+Matching them the other way round silently shifts every caption by one sign. The
+pairings above were built by walking the page structure and taking the paragraph
+that *precedes* each image, then confirmed against three signs whose meaning is
+unmistakable (stop, yield, railway crossing). Re-derive them the same way before
+changing any sign, and check the new image against the question's answer — not
+just against the sign it replaces.
 
 ## Known limits
 
